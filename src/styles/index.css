@@ -1,15 +1,10 @@
 html, body {
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 .c-ec-container {
-  // Structure
   width: 100%;
   max-width: 850px;
   margin-left: auto;
   margin-right: auto;
-
-  // Text
-  font-family: 'LFT Etica';
-}
+  font-family: 'LFT Etica'; }
