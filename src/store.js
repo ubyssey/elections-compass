@@ -12,6 +12,53 @@ const appPages = {
   results: ResultsPage
 }
 
+const races = [
+  {
+    title: 'President',
+    categories: ['cat-1', 'cat-2'],
+    candidates: [
+      {
+        name: 'John Smith',
+        description: 'bla bla bla',
+        answers: {
+          'cat-1': 5,
+          'cat-2': 2
+        }
+      },
+      {
+        name: 'Jane Smith',
+        description: 'bla bla bla',
+        answers: {
+          'cat-1': 3,
+          'cat-2': 2
+        }
+      }
+    ]
+  },
+  {
+    title: 'VP Admin',
+    categories: ['cat-1', 'cat-2'],
+    candidates: [
+      {
+        name: 'Jane Smith',
+        description: 'bla bla bla',
+        answers: {
+          'cat-1': 5,
+          'cat-2': 2
+        }
+      },
+      {
+        name: 'John Smith',
+        description: 'bla bla bla',
+        answers: {
+          'cat-1': 1,
+          'cat-2': 1
+        }
+      },
+    ]
+  }
+]
+
 const surveyQuestions = [
   {
     body: 'The AMS should reduce the price of food in the Nest.',
@@ -30,6 +77,7 @@ const surveyQuestions = [
 const initialState = {
   page: appPages.landing,
   questions: surveyQuestions,
+  races: races,
   currentQuestion: 0,
   answers: {}
 }

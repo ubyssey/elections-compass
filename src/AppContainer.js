@@ -20,7 +20,8 @@ const mapStateToProps = (state) => {
     page: state.page,
     questions: state.questions,
     currentQuestion: state.currentQuestion,
-    answers: state.answers
+    answers: state.answers,
+    races: state.races
   }
 }
 
