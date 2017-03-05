@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 function computeSimilarity(race, answers, candidate) {
+
   let total = race.categories
     .map((category) => candidate.answers[category] - (answers[category] || 0))
     .reduce((a, b) => a + b)
@@ -36,7 +37,7 @@ const ResultsRaceCandidates = (props) => {
     .map((candidate, i) => (<li key={i}>{candidate.name}</li>))
 
   return (
-    <ul>{candidates}</ul>
+    <ol>{candidates}</ol>
   )
 
 }

@@ -12,49 +12,159 @@ const appPages = {
   results: ResultsPage
 }
 
+const surveyCategories = {
+  'student-involvement': {
+    name: 'Student Involvement',
+    type: 'simple'
+  },
+  'spending': {
+    name: 'Spending',
+    type: 'binary',
+    options: ['increase', 'decrease']
+  }
+}
+
 const races = [
   {
     title: 'President',
-    categories: ['cat-1', 'cat-2'],
+    categories: ['spending', 'student-involvement'],
     candidates: [
       {
-        name: 'John Smith',
-        description: 'bla bla bla',
-        answers: {
-          'cat-1': 5,
-          'cat-2': 2
-        }
+        name: 'James Cohen',
+        answers: {}
       },
       {
-        name: 'Jane Smith',
-        description: 'bla bla bla',
-        answers: {
-          'cat-1': 3,
-          'cat-2': 2
-        }
+        name: 'Sugar Brewer',
+        answers: {}
+      },
+      {
+        name: 'The Cairn',
+        answers: {}
+      },
+      {
+        name: 'Jesse Hooton',
+        answers: {}
+      },
+      {
+        name: 'Julian Del Balso',
+        answers: {}
       }
     ]
   },
   {
-    title: 'VP Admin',
-    categories: ['cat-1', 'cat-2'],
+    title: 'VP Administration',
+    categories: ['spending', 'student-involvement'],
     candidates: [
       {
-        name: 'Jane Smith',
-        description: 'bla bla bla',
-        answers: {
-          'cat-1': 5,
-          'cat-2': 2
-        }
+        name: 'Pooja Bhatti',
+        answers: {}
       },
       {
-        name: 'John Smith',
-        description: 'bla bla bla',
-        answers: {
-          'cat-1': 1,
-          'cat-2': 1
-        }
+        name: 'Julien Hart',
+        answers: {}
       },
+      {
+        name: 'Faraz Nikzad',
+        answers: {}
+      }
+    ]
+  },
+  {
+    title: 'VP Academic & University Affairs',
+    categories: ['spending', 'student-involvement'],
+    candidates: [
+      {
+        name: 'Daniel Lam',
+        answers: {}
+      }
+    ]
+  },
+  {
+    title: 'VP External Affairs',
+    categories: ['spending', 'student-involvement'],
+    candidates: [
+      {
+        name: 'Dario Garousian',
+        answers: {}
+      },
+      {
+        name: 'Sally Lin',
+        answers: {}
+      }
+    ]
+  },
+  {
+    title: 'VP Finance',
+    categories: ['spending', 'student-involvement'],
+    candidates: [
+      {
+        name: 'Matthew Morton',
+        answers: {}
+      },
+      {
+        name: 'Alim Lakhiyalov',
+        answers: {}
+      }
+    ]
+  },
+  {
+    title: 'UBC Board of Governors',
+    categories: ['spending', 'student-involvement'],
+    candidates: [
+      {
+        name: 'Louis Retief',
+        answers: {}
+      },
+      {
+        name: 'Jakob Gattinger',
+        answers: {}
+      },
+      {
+        name: 'Kevin Doering',
+        answers: {}
+      },
+      {
+        name: 'Sneha Balani',
+        answers: {}
+      },
+      {
+        name: 'Jeanie Malone',
+        answers: {}
+      }
+    ]
+  },
+  {
+    title: 'Senate',
+    categories: ['spending', 'student-involvement'],
+    candidates: [
+      {
+        name: 'Daniel Lam',
+        answers: {}
+      },
+      {
+        name: 'Simran Brar',
+        answers: {}
+      },
+      {
+        name: 'William Chen',
+        answers: {}
+      },
+      {
+        name: 'Kevin Doering',
+        answers: {}
+      },
+      {
+        name: 'Jakob Gattinger',
+        answers: {}
+      },
+      {
+        name: 'Maja Dziok',
+        answers: {}
+      },
+      {
+        name: 'Ian Sapollnik',
+        answers: {}
+      }
     ]
   }
 ]
@@ -62,21 +172,22 @@ const races = [
 const surveyQuestions = [
   {
     body: 'The AMS should reduce the price of food in the Nest.',
-    category: 'cat-1'
+    category: 'spending.increase'
   },
   {
     body: 'The AMS should reduce the price of food in the Nest 1.',
-    category: 'cat-2'
+    category: 'student-involvement'
   },
   {
     body: 'The AMS should reduce the price of food in the Nest 2.',
-    category: 'cat-1'
+    category: 'spending.decrease'
   }
 ]
 
 const initialState = {
   page: appPages.landing,
   questions: surveyQuestions,
+  categories: surveyCategories,
   races: races,
   currentQuestion: 0,
   answers: {}
