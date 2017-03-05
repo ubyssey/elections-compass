@@ -7,7 +7,6 @@ import AppContainer from './AppContainer'
 import store from './store'
 
 require('./styles/index.css')
-
 render(
   (
     <Provider store={store}>
