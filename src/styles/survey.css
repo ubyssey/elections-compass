@@ -11,6 +11,7 @@
   background-color: #15AAC9;
 
   font-size: 28px;
+  line-height: 1.3em;
   font-weight: 800;
   text-align: center;
   letter-spacing: 0.45px;
@@ -30,7 +31,6 @@
 
 .c-ec-survey__response {
   display: flex;
-
 }
 
 .c-ec-survey__response__option {
@@ -169,4 +169,35 @@
 .c-ec-survey__progress__skip,
 .c-ec-survey__progress__previous {
   cursor: pointer;
+}
+
+@media screen and (max-width: 720px) {
+  .c-ec-survey__question {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: 24px;
+  }
+  .c-ec-survey__response {
+    display: block;
+  }
+  .c-ec-survey__response__option {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+  .c-ec-survey__response__option > button {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    min-height: 56px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .c-ec-survey__progress__skip,
+  .c-ec-survey__progress__previous {
+    flex: 1;
+    text-align: center;
+  }
+  .c-ec-survey__progress__list {
+    display: none;
+  }
 }

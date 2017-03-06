@@ -92,3 +92,15 @@
 .c-ec-landing__start--loading > .c-spinner {
   margin-left: 0.45rem;
 }
+
+@media screen and (max-width: 720px) {
+  .c-ec-landing__heading {
+    font-size: 35px;
+    line-height: 40px;
+  }
+
+  .c-ec-landing__heading > img {
+    height: 35px;
+    margin-right: 0.45rem;
+  }
+}

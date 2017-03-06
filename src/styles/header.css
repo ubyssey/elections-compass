@@ -33,3 +33,19 @@
   vertical-align: middle;
   margin-right: 0.65rem;
 }
+
+@media screen and (max-width: 720px) {
+  .c-ec-header {
+    margin-top: 1rem;
+  }
+
+  .c-ec-header__heading {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .c-ec-header__heading > img {
+    height: 30px;
+    margin-right: 0.45rem;
+  }
+}

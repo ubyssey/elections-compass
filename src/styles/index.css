@@ -47,8 +47,9 @@ button:active {
 }
 
 .c-ec-container {
-  width: 100%;
   max-width: 850px;
+	padding-left: 15px;
+	padding-right: 15px;
   margin-left: auto;
   margin-right: auto;
   font-family: 'ub-lft-etica', sans-serif;
