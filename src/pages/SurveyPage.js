@@ -2,42 +2,46 @@ import React, { Component } from 'react';
 
 import Header from '../components/Header'
 
+import '../styles/survey.css';
+
 const SurveyQuestion = (props) => (
-  <div className='c-ec-survey__question'>{props.question.body}</div>
+  <div className='c-ec-survey__question'><div>{props.question.body}</div></div>
 )
 
 const SurveyResponse = (props) => (
   <div className='c-ec-survey__response'>
-    <button
-      className='c-ec-survey__response__option c-ec-survey__response__option--1'
-      onClick={e => props.submitResponse(1)}>Strongly Disagree</button>
-    <button
-      className='c-ec-survey__response__option c-ec-survey__response__option--2'
-      onClick={e => props.submitResponse(2)}>Somewhat Disagree</button>
-    <button
-      className='c-ec-survey__response__option c-ec-survey__response__option--3'
-      onClick={e => props.submitResponse(3)}>Neutral</button>
-    <button
-      className='c-ec-survey__response__option c-ec-survey__response__option--4'
-      onClick={e => props.submitResponse(4)}>Somewhat Agree</button>
-    <button
-      className='c-ec-survey__response__option c-ec-survey__response__option--5'
-      onClick={e => props.submitResponse(5)}>Strongly Agree</button>
+    <div className='c-ec-survey__response__option c-ec-survey__response__option--1'>
+      <button onClick={e => props.submitResponse(1)}>Strongly Disagree</button>
+    </div>
+    <div className='c-ec-survey__response__option c-ec-survey__response__option--2'>
+      <button onClick={e => props.submitResponse(2)}>Somewhat Disagree</button>
+    </div>
+    <div className='c-ec-survey__response__option c-ec-survey__response__option--3'>
+      <button onClick={e => props.submitResponse(3)}>Neutral</button>
+    </div>
+    <div className='c-ec-survey__response__option c-ec-survey__response__option--4'>
+      <button onClick={e => props.submitResponse(4)}>Somewhat Agree</button>
+    </div>
+    <div className='c-ec-survey__response__option c-ec-survey__response__option--5'>
+      <button onClick={e => props.submitResponse(5)}>Strongly Agree</button>
+    </div>
   </div>
 )
 
 const SurveyProgress = (props) => (
-  <ul className='c-ec-survey__progress'>
-      <li className='c-ec-survey__progress__previous'
-        onClick={e => props.prevQuestion()}>Previous</li>
+  <div className='c-ec-survey__progress'>
+    <div className='c-ec-survey__progress__previous'
+      onClick={e => props.prevQuestion()}>Previous</div>
+    <div className='c-ec-survey__progress__list'>
     {
       props.questions.map((question, i) => (
-        <li className={`c-ec-survey__progress${i === props.index ? ' c-ec-survey__progress--active' : ''}`} key={i}>{i + 1}</li>
+        <div className={`c-ec-survey__progress__item${i === props.index ? ' c-ec-survey__progress__item--active' : ''}`} key={i}>{i + 1}</div>
       ))
     }
-    <li className='c-ec-survey__progress__skip'
-        onClick={e => props.nextQuestion()}>Skip</li>
-  </ul>
+    </div>
+    <div className='c-ec-survey__progress__skip'
+        onClick={e => props.nextQuestion()}>Skip</div>
+  </div>
 )
 
 class SurveyPage extends Component {
