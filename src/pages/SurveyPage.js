@@ -41,7 +41,7 @@ const SurveyProgress = (props) => (
     }
     </div>
     <div className='c-ec-survey__progress__skip'
-        onClick={e => props.nextQuestion()}>Skip</div>
+        onClick={e => props.skipQuestion()}>Skip</div>
   </div>
 )
 
@@ -59,7 +59,7 @@ class SurveyPage extends Component {
           index={this.props.currentQuestion}
           questions={this.props.questions}
           prevQuestion={this.props.prevQuestion}
-          nextQuestion={this.props.nextQuestion} />
+          skipQuestion={this.props.skipQuestion} />
         <Footer />
       </div>
     );

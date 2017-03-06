@@ -33,6 +33,37 @@ export function resetSurvey() {
   }
 }
 
+const ANSWERS = [
+  'Strongly Disagree',
+  'Disagree',
+  'Neutral',
+  'Agree',
+  'Strongly Agree'
+]
+
+export function submitAnswers(formId, questions, answers) {
+  return function(dispatch) {
+
+    var body = ['fvv=1', 'pageHistory=0']
+
+    questions.forEach(question => {
+      if (answers.hasOwnProperty(question.id) && answers[question.id] !== null) {
+        body.push(`entry.${question.formId}=${encodeURIComponent(ANSWERS[answers[question.id]])}`)
+      }
+    })
+
+    const url = `https://docs.google.com/forms/d/e/${formId}/formResponse`
+
+    return fetch(url, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      body: body.join('&')
+    })
+
+  }
+}
+
 export function fetchData(url) {
   return function(dispatch) {
     return fetch(url, { method: 'GET', headers: {'Content-Type': 'text/plain'} })

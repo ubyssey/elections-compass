@@ -22,7 +22,7 @@
 
 .c-ec-category__bar__fill {
   border-radius: 4px;
-  background: black;
+  background: #d00000;
   height: 100%;
 }
 
@@ -45,6 +45,15 @@
 
 .c-ec-candidate__bar__fill {
   border-radius: 4px;
-  background: black;
+  background: #d00000;
   height: 100%;
+}
+
+.c-ec-candidate__bar__empty {
+  height: 100%;
+  line-height: 30px;
+  font-size: 13px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  color: #808080;
 }

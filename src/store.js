@@ -22,7 +22,8 @@ const initialState = {
   races: [],
   currentQuestion: 0,
 
-  answers: {}
+  answers: {},
+  rawAnswers: {}
 }
 
 function shuffle(array) {
@@ -44,11 +45,17 @@ function reducer(state = initialState, action) {
       var direction = question.direction || 'up'
       var value = direction === 'down' ? 4-action.value : action.value
       var answers = state.answers
+      var rawAnswers = state.rawAnswers
+      if (action.value == null) {
+        value = null
+      }
+      rawAnswers[question.id] = action.value
       answers[question.id] = value
-      return Object.assign({}, state, { answers: answers })
+      return Object.assign({}, state, { rawAnswers: rawAnswers, answers: answers })
     case types.RESET_SURVEY:
       return Object.assign({}, state, {
-        answers: [],
+        rawAnswers: {},
+        answers: {},
         currentQuestion: 0,
         questions: shuffle(state.questions)
       })

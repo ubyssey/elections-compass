@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
-import { fetchData, resetSurvey, goToPage, submitResponse, prevQuestion, nextQuestion } from './actions'
+import { fetchData, submitAnswers, resetSurvey, goToPage, submitResponse, prevQuestion, nextQuestion } from './actions'
 
 class App extends Component {
 
@@ -30,6 +30,7 @@ const mapStateToProps = (state) => {
     races: state.races,
 
     currentQuestion: state.currentQuestion,
+    rawAnswers: state.rawAnswers,
     answers: state.answers
   }
 }
@@ -38,6 +39,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchData: (url) => {
       dispatch(fetchData(url))
+    },
+    submitAnswers: (formId, questions, answers) => {
+      dispatch(submitAnswers(formId, questions, answers))
     },
     resetSurvey: () => {
       dispatch(resetSurvey())
@@ -52,7 +56,8 @@ const mapDispatchToProps = (dispatch) => {
     prevQuestion: () => {
       dispatch(prevQuestion())
     },
-    nextQuestion: () => {
+    skipQuestion: () => {
+      dispatch(submitResponse(null))
       dispatch(nextQuestion())
     }
   }

@@ -10,27 +10,29 @@ function round(value, decimals) {
 }
 
 function percentDiff(a, b) {
-  return Math.abs(a - b) / ((a + b) / 2);
+  return Math.abs(a - b) / 5;
 }
 
-function computeDiff(scoresA, scoresB, maxScores) {
+function computeSimilarity(answersA, answersB) {
 
   let total = 0;
   let count = 0;
+  let nullCount = 0;
 
-  for (var i = 0; i < scoresA.length; i++) {
-    if (scoresA[i] > 0 && scoresB[i] > 0) {
-      total += percentDiff(scoresA[i], scoresB[i])
+  for (var i = 0; i < answersA.length; i++) {
+    if (answersA[i] !== null && answersB[i] !== null) {
+      total += percentDiff(answersA[i], answersB[i])
+      count++
     } else {
-      total += 1
+      nullCount++;
     }
   }
 
-  // if (count === 0) {
-  //   return 0
-  // }
+  if (count === 0) {
+    return 0
+  }
 
-  return round(1 - (total / maxScores), 2)
+  return Math.max(round(1 - (total / count), 2) - (nullCount / answersA.length / 2), 0)
 
 }
 
@@ -39,7 +41,11 @@ const ResultsRaceCandidates = (props) => {
   const candidates = props.race.candidates
     .map((id) => props.candidates[id])
     .map((candidate) => {
-      candidate.scoresDiff = computeDiff(candidate.scores, props.scores, props.maxScores)
+
+      console.log('answersA', candidate.answers)
+      console.log('answersB', props.answers)
+
+      candidate.scoresDiff = computeSimilarity(candidate.answers, props.answers)
       return candidate
     })
     .sort((a, b) => {
@@ -67,6 +73,7 @@ const ResultsRace = (props) => {
       <h2>{props.race.title}</h2>
       <ResultsRaceCandidates
         race={props.race}
+        answers={props.answers}
         scores={props.scores}
         candidates={props.candidates}
         maxScores={props.maxScores} />
@@ -76,9 +83,11 @@ const ResultsRace = (props) => {
 
 const ResultsCandidateBar = (props) => {
   const style = {width: (props.percent * 100) + '%' }
+  const empty = (<div className='c-ec-candidate__bar__empty'>Insufficient data</div>)
+  const bar = (<div className='c-ec-candidate__bar__fill' style={style}></div>)
   return (
     <div className='c-ec-candidate__bar'>
-      <div className='c-ec-candidate__bar__fill' style={style}></div>
+      {props.percent === 0 ? empty : bar}
     </div>
   )
 }
@@ -112,6 +121,10 @@ const ResultsCategory = (props) => {
 
 class ResultsPage extends Component {
 
+  componentWillMount() {
+    this.props.submitAnswers('1FAIpQLSdxHdZJAuVaRBUK0ZDJcUGx95bP9O6yw8xJAeji8LpKScQgMQ', this.props.questions, this.props.rawAnswers)
+  }
+
   getScores() {
 
     var n = Object.keys(this.props.categories).length
@@ -127,14 +140,17 @@ class ResultsPage extends Component {
 
         let cat = this.props.categories[question.category]
 
-        rawScores[cat.id] += score
-        responses[cat.id] += 1
+        if (score !== null) {
+          rawScores[cat.id] += score
+          responses[cat.id] += 1
+        }
+
       }
 
     })
 
     var scores = rawScores.map((score, i) => {
-      if (score > 0) {
+      if (responses[i] > 0) {
         return score / responses[i]
       } else {
         return 0
@@ -162,7 +178,7 @@ class ResultsPage extends Component {
 
     const races = this.props.races.map((race, i) => {
       return (
-        <ResultsRace key={i} race={race} candidates={this.props.candidates} scores={scores} maxScores={n} />
+        <ResultsRace key={i} race={race} candidates={this.props.candidates} answers={this.props.answers} scores={scores} maxScores={n} />
       )
     })
 
@@ -170,6 +186,7 @@ class ResultsPage extends Component {
       <div>
         <Header goToPage={this.props.goToPage} />
         <h2>Your results</h2>
+        <h4>These are the issues you care about most</h4>
         {categories}
         {races}
         <Footer />
