@@ -39,6 +39,11 @@ html, body {
   padding: 0;
 }
 
+button:focus,
+button:active {
+  outline: none;
+}
+
 .c-ec-container {
   width: 100%;
   max-width: 850px;

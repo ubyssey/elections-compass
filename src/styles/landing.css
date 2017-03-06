@@ -49,8 +49,7 @@
 
   text-shadow: 0px 1px 2px rgba(0,0,0,0.50);
 
-  padding-left: 3rem;
-  padding-right: 3rem;
+  width: 250px;
 
   font-size: 20px;
   font-weight: 600;
@@ -62,6 +61,24 @@
   border-radius: 5px;
 
   cursor: pointer;
+}
+
+.c-ec-landing__start--loading {
+  background-color: #d8d8d8;
+  box-shadow: 0px 5px #c7c7c7;
+  color: #9a9a9a;
+  text-shadow: none;
+  cursor: default;
+}
+
+.c-ec-landing__start--loading > span,
+.c-ec-landing__start--loading > .c-spinner {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.c-ec-landing__start--loading > .c-spinner {
+  margin-left: 0.45rem;
 }
 
 #landing-footer {

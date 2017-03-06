@@ -152,6 +152,8 @@ const races = [
 
 const initialState = {
   page: appPages.landing,
+
+  isLoaded: false,
   questions: [],
   categories: {},
   races: races,
@@ -181,7 +183,9 @@ function reducer(state = initialState, action) {
         return Object.assign({}, state, { page: appPages.results })
       }
     case types.FETCH_DATA:
-      return Object.assign({}, state, action.data)
+      var data = action.data
+      data.isLoaded = true;
+      return Object.assign({}, state, data)
     default:
       return state
   }

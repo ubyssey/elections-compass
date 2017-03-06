@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 
 import { fetchData, goToPage, submitResponse, prevQuestion, nextQuestion } from './actions'
 
-import './styles/App.css';
-
 class App extends Component {
 
   componentWillMount() {
@@ -25,6 +23,7 @@ const mapStateToProps = (state) => {
     page: state.page,
 
     // Data
+    isLoaded: state.isLoaded,
     questions: state.questions,
     categories: state.categories,
     candidates: state.candidates,
