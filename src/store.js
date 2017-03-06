@@ -13,154 +13,26 @@ const appPages = {
   results: ResultsPage
 }
 
-const races = [
-  {
-    title: 'President',
-    categories: ['spending', 'student-involvement'],
-    candidates: [
-      {
-        name: 'James Cohen',
-        answers: {}
-      },
-      {
-        name: 'Sugar Brewer',
-        answers: {}
-      },
-      {
-        name: 'The Cairn',
-        answers: {}
-      },
-      {
-        name: 'Jesse Hooton',
-        answers: {}
-      },
-      {
-        name: 'Julian Del Balso',
-        answers: {}
-      }
-    ]
-  },
-  {
-    title: 'VP Administration',
-    categories: ['spending', 'student-involvement'],
-    candidates: [
-      {
-        name: 'Pooja Bhatti',
-        answers: {}
-      },
-      {
-        name: 'Julien Hart',
-        answers: {}
-      },
-      {
-        name: 'Faraz Nikzad',
-        answers: {}
-      }
-    ]
-  },
-  {
-    title: 'VP Academic & University Affairs',
-    categories: ['spending', 'student-involvement'],
-    candidates: [
-      {
-        name: 'Daniel Lam',
-        answers: {}
-      }
-    ]
-  },
-  {
-    title: 'VP External Affairs',
-    categories: ['spending', 'student-involvement'],
-    candidates: [
-      {
-        name: 'Dario Garousian',
-        answers: {}
-      },
-      {
-        name: 'Sally Lin',
-        answers: {}
-      }
-    ]
-  },
-  {
-    title: 'VP Finance',
-    categories: ['spending', 'student-involvement'],
-    candidates: [
-      {
-        name: 'Alim Lakhiyalov',
-        answers: {}
-      }
-    ]
-  },
-  {
-    title: 'UBC Board of Governors',
-    categories: ['spending', 'student-involvement'],
-    candidates: [
-      {
-        name: 'Louis Retief',
-        answers: {}
-      },
-      {
-        name: 'Jakob Gattinger',
-        answers: {}
-      },
-      {
-        name: 'Kevin Doering',
-        answers: {}
-      },
-      {
-        name: 'Sneha Balani',
-        answers: {}
-      },
-      {
-        name: 'Jeanie Malone',
-        answers: {}
-      }
-    ]
-  },
-  {
-    title: 'Senate',
-    categories: ['spending', 'student-involvement'],
-    candidates: [
-      {
-        name: 'Daniel Lam',
-        answers: {}
-      },
-      {
-        name: 'Simran Brar',
-        answers: {}
-      },
-      {
-        name: 'William Chen',
-        answers: {}
-      },
-      {
-        name: 'Kevin Doering',
-        answers: {}
-      },
-      {
-        name: 'Jakob Gattinger',
-        answers: {}
-      },
-      {
-        name: 'Ian Sapollnik',
-        answers: {}
-      }
-    ]
-  }
-]
-
 const initialState = {
   page: appPages.landing,
 
   isLoaded: false,
   questions: [],
   categories: {},
-  races: races,
+  races: [],
   currentQuestion: 0,
 
-  raw_scores: {},
-  responses: {}
+  answers: {}
+}
+
+function shuffle(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1))
+    var temp = array[i]
+    array[i] = array[j]
+    array[j] = temp
+  }
+  return array;
 }
 
 function reducer(state = initialState, action) {
@@ -168,12 +40,18 @@ function reducer(state = initialState, action) {
     case types.GO_TO_PAGE:
       return Object.assign({}, state, { page: appPages[action.page] })
     case types.SUBMIT_RESPONSE:
-      var category = state.questions[state.currentQuestion].category
-      var raw_scores = state.raw_scores
-      var responses = state.responses
-      raw_scores[category] = (raw_scores[category] || 0) + action.value
-      responses[category] = (responses[category] || 0) + 1
-      return Object.assign({}, state, { raw_scores: raw_scores, responses: responses })
+      var question = state.questions[state.currentQuestion]
+      var direction = question.direction || 'up'
+      var value = direction === 'down' ? 4-action.value : action.value
+      var answers = state.answers
+      answers[question.id] = value
+      return Object.assign({}, state, { answers: answers })
+    case types.RESET_SURVEY:
+      return Object.assign({}, state, {
+        answers: [],
+        currentQuestion: 0,
+        questions: shuffle(state.questions)
+      })
     case types.PREV_QUESTION:
       return Object.assign({}, state, { currentQuestion: Math.max(0, state.currentQuestion - 1) })
     case types.NEXT_QUESTION:
@@ -184,6 +62,7 @@ function reducer(state = initialState, action) {
       }
     case types.FETCH_DATA:
       var data = action.data
+      data.questions = shuffle(data.questions)
       data.isLoaded = true;
       return Object.assign({}, state, data)
     default:

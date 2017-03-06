@@ -38,29 +38,41 @@
   font-size: 18px;
 }
 
+.c-ec-landing__button {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .c-ec-landing__start {
   height: 74px;
   border: none;
   background-color: #C91515;
-  box-shadow: 0px 5px #8D1010;
+  box-shadow: 0px 4px #8D1010;
 
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 0;
+  margin-bottom: 5px;
 
-  text-shadow: 0px 1px 2px rgba(0,0,0,0.50);
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.4);
 
-  width: 250px;
+  width: 275px;
 
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 800;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 0.75px;
+  letter-spacing: 0.5px;
   color: white;
 
   border-radius: 5px;
 
   cursor: pointer;
+}
+
+.c-ec-landing__start:active {
+  margin-top: 1px;
+  margin-bottom: 4px;
+  background-color: #c11515;
+  box-shadow: 0px 3px #8D1010;
 }
 
 .c-ec-landing__start--loading {
@@ -79,10 +91,4 @@
 
 .c-ec-landing__start--loading > .c-spinner {
   margin-left: 0.45rem;
-}
-
-#landing-footer {
-	padding:10px;
-	height:50px;
-	background-color:white;
 }

@@ -5,9 +5,14 @@ import '../styles/landing.css';
 import compass from '../images/compass.svg'
 
 import Spinner from '../components/Spinner'
+import Footer from '../components/Footer'
 
 class LandingPage extends Component {
 
+  componentWillMount() {
+    this.props.resetSurvey()
+  }
+  
   renderStart() {
     return (
       <button
@@ -32,13 +37,15 @@ class LandingPage extends Component {
     return (
       <div className='c-ec-landing'>
       	<div className='landing-container'>
-    		<div className='landing-text-container'>
-      		<h2 className='c-ec-landing__subheading'>2017 AMS Elections</h2>
-       		<h1 className='c-ec-landing__heading'><img src={compass} alt="Compass" /><span>Vote Compass</span></h1>
-       		<div className='c-ec-landing__blurb'>Not sure who to vote for? Let us help you out!</div>
-   				{this.props.isLoaded ? this.renderStart() : this.renderLoading()}
-        </div>
-    		<div id="landing-footer"> Produced by your friends at <i>The Ubyssey</i></div>
+      		<div className='landing-text-container'>
+        		<h2 className='c-ec-landing__subheading'>2017 AMS Elections</h2>
+         		<h1 className='c-ec-landing__heading'><img src={compass} alt="Compass" /><span>Vote Compass</span></h1>
+         		<div className='c-ec-landing__blurb'>Not sure who to vote for? Let us help you out!</div>
+            <div className='c-ec-landing__button'>
+     				   {this.props.isLoaded ? this.renderStart() : this.renderLoading()}
+            </div>
+          </div>
+          <Footer />
        	</div>
      	</div>
     )

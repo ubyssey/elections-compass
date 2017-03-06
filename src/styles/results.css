@@ -1,0 +1,50 @@
+.c-ec-results__race {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.c-ec-category {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.c-ec-category__name {
+  width: 200px;
+  line-height: 30px;
+}
+
+.c-ec-category__bar {
+  flex: 1;
+  height: 30px;
+  background: #e4e4e4;
+  border-radius: 4px;
+}
+
+.c-ec-category__bar__fill {
+  border-radius: 4px;
+  background: black;
+  height: 100%;
+}
+
+.c-ec-candidate {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.c-ec-candidate__name {
+  width: 20%;
+  line-height: 30px;
+}
+
+.c-ec-candidate__bar {
+  flex: 1;
+  height: 30px;
+  background: #e4e4e4;
+  border-radius: 4px;
+}
+
+.c-ec-candidate__bar__fill {
+  border-radius: 4px;
+  background: black;
+  height: 100%;
+}

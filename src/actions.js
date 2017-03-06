@@ -27,6 +27,12 @@ export function nextQuestion() {
   }
 }
 
+export function resetSurvey() {
+  return {
+    type: types.RESET_SURVEY
+  }
+}
+
 export function fetchData(url) {
   return function(dispatch) {
     return fetch(url, { method: 'GET', headers: {'Content-Type': 'text/plain'} })

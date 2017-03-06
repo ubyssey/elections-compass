@@ -37,6 +37,8 @@
 html, body {
   margin: 0;
   padding: 0;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
 }
 
 button:focus,
@@ -50,5 +52,4 @@ button:active {
   margin-left: auto;
   margin-right: auto;
   font-family: 'ub-lft-etica', sans-serif;
-  background: white;
 }

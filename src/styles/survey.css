@@ -11,9 +11,9 @@
   background-color: #15AAC9;
 
   font-size: 28px;
-  font-weight: 600;
+  font-weight: 800;
   text-align: center;
-  letter-spacing: 0.75px;
+  letter-spacing: 0.45px;
   color: white;
 
   border-radius: 5px;
@@ -25,7 +25,7 @@
 
 .c-ec-survey__question,
 .c-ec-survey__response__option > button {
-  text-shadow: 0px 1px 2px rgba(0,0,0,0.50);
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.4);
 }
 
 .c-ec-survey__response {
@@ -46,46 +46,78 @@
   width: 100%;
   padding: 1rem;
   text-transform: uppercase;
-  font-size: 16px;
-  letter-spacing: 0.75px;
-  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  line-height: 1.25em;
+  font-weight: 800;
   min-height: 75px;
   vertical-align: middle;
   border-radius:5px;
   color:white;
   border: none;
+  margin-bottom: 4px;
 
   cursor: pointer;
 }
 
+.c-ec-survey__response__option > button:active {
+  margin-top: 1px;
+  margin-bottom: 3px;
+}
+
 .c-ec-survey__response__option--1 > button {
-    background-color: #C91515;
-    box-shadow: 0px 5px #8D1010;
+  background-color: #C91515;
+  box-shadow: 0px 4px #8D1010;
+}
+
+.c-ec-survey__response__option--1 > button:active {
+  background-color: #c11515;
+  box-shadow: 0px 3px #8D1010;
 }
 
 .c-ec-survey__response__option--2 > button {
     background-color: #E14E00;
-    box-shadow: 0px 5px #8A3101;
+    box-shadow: 0px 4px #8A3101;
+}
+
+.c-ec-survey__response__option--2 > button:active {
+  background-color: #d64b02;
+  box-shadow: 0px 3px #8A3101;
 }
 
 .c-ec-survey__response__option--3 > button {
     background-color: #F9E500;
-    box-shadow: 0px 5px #B3A504;
+    box-shadow: 0px 4px #B3A504;
+}
+
+.c-ec-survey__response__option--3 > button:active {
+  background-color: #f3df01;
+  box-shadow: 0px 3px #B3A504;
 }
 
 .c-ec-survey__response__option--4 > button {
     background-color: #669B00;
-    box-shadow: 0px 5px #476C00;
+    box-shadow: 0px 4px #476C00;
+}
+
+.c-ec-survey__response__option--4 > button:active {
+    background-color: #649801;
+    box-shadow: 0px 3px #476C00;
 }
 
 .c-ec-survey__response__option--5 > button {
     background-color: #20E200;
-    box-shadow: 0px 5px #18A101;
+    box-shadow: 0px 4px #18A101;
+}
+
+.c-ec-survey__response__option--5 > button:active {
+    background-color: #20e000;
+    box-shadow: 0px 3px #18A101;
 }
 
 .c-ec-survey__progress {
   display: flex;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
 }
 
 .c-ec-survey__progress__list {

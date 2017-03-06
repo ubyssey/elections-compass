@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 import '../styles/survey.css';
 
@@ -11,19 +12,19 @@ const SurveyQuestion = (props) => (
 const SurveyResponse = (props) => (
   <div className='c-ec-survey__response'>
     <div className='c-ec-survey__response__option c-ec-survey__response__option--1'>
-      <button onClick={e => props.submitResponse(1)}>Strongly Disagree</button>
+      <button onClick={e => props.submitResponse(0)}>Strongly Disagree</button>
     </div>
     <div className='c-ec-survey__response__option c-ec-survey__response__option--2'>
-      <button onClick={e => props.submitResponse(2)}>Somewhat Disagree</button>
+      <button onClick={e => props.submitResponse(1)}>Somewhat Disagree</button>
     </div>
     <div className='c-ec-survey__response__option c-ec-survey__response__option--3'>
-      <button onClick={e => props.submitResponse(3)}>Neutral</button>
+      <button onClick={e => props.submitResponse(2)}>Neutral</button>
     </div>
     <div className='c-ec-survey__response__option c-ec-survey__response__option--4'>
-      <button onClick={e => props.submitResponse(4)}>Somewhat Agree</button>
+      <button onClick={e => props.submitResponse(3)}>Somewhat Agree</button>
     </div>
     <div className='c-ec-survey__response__option c-ec-survey__response__option--5'>
-      <button onClick={e => props.submitResponse(5)}>Strongly Agree</button>
+      <button onClick={e => props.submitResponse(4)}>Strongly Agree</button>
     </div>
   </div>
 )
@@ -59,6 +60,7 @@ class SurveyPage extends Component {
           questions={this.props.questions}
           prevQuestion={this.props.prevQuestion}
           nextQuestion={this.props.nextQuestion} />
+        <Footer />
       </div>
     );
   }
