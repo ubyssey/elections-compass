@@ -28,13 +28,15 @@ const SurveyResponse = (props) => (
 
 const SurveyProgress = (props) => (
   <ul className='c-ec-survey__progress'>
-    <li onClick={e => props.prevQuestion()}>Prev</li>
+      <li className='c-ec-survey__progress__previous'
+        onClick={e => props.prevQuestion()}>Previous</li>
     {
       props.questions.map((question, i) => (
         <li className={`c-ec-survey__progress${i === props.index ? ' c-ec-survey__progress--active' : ''}`} key={i}>{i + 1}</li>
       ))
     }
-    <li onClick={e => props.nextQuestion()}>Skip</li>
+    <li className='c-ec-survey__progress__skip'
+        onClick={e => props.nextQuestion()}>Skip</li>
   </ul>
 )
 

@@ -63,3 +63,126 @@ html, body {
 	background-color:white;
 }
 
+
+.c-ec-container {
+  width: 100%;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'LFT Etica'; }
+
+.c-ec-header h2{
+    color: red;
+    font-family: 'LFT Etica Semibold';
+    text-transform: uppercase;
+    font-size:medium;
+    margin-bottom: 8px;
+}
+
+.c-ec-header h1{
+    text-transform: uppercase;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+
+.c-ec-survey__question{
+    font-family: 'LFT Etica Semibold';
+    padding-top:100px;
+    padding-bottom:100px;
+    background-color:#1E90FF;
+    text-align:center;
+    font-size: x-large;
+    color: white;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.c-ec-survey__response{
+    
+}
+
+.c-ec-survey__response__option{
+    font-family: 'LFT Etica';
+    text-transform: uppercase;
+    font-size:medium;
+    width: 19%;
+    height: 75px;
+    vertical-align: middle;
+    margin-top: 10px;
+    margin-bottom:10px;
+    border-radius:5px;
+    color:white;
+}
+
+.c-ec-survey__response__option + .c-ec-survey__response__option {
+    margin-left: 1.25%;
+}
+
+.c-ec-survey__response__option--1{
+    background-color: #CD0000;
+    box-shadow: 0px 2px #8B0000;
+    border-color: #CD0000;
+}
+
+.c-ec-survey__response__option--2{
+    background-color: #FF6103;
+    box-shadow: 0px 2px #CD8500;
+    border-color: #FF6103;
+}
+
+.c-ec-survey__response__option--3{
+    background-color: #FFD700;
+    box-shadow: 0px 2px #DAA520;
+    border-color: #FFD700;
+}
+
+.c-ec-survey__response__option--4{
+    background-color: #76EE00;
+    box-shadow: 0px 2px #3CB371;
+    border-color: #76EE00;
+}
+
+.c-ec-survey__response__option--5{
+    background-color: #00C957;
+    box-shadow: 0px 2px #2E8B57;
+    border-color: #00C957;
+}
+
+ul.c-ec-survey__progress {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top:10px;
+    padding-bottom: 10px;
+    margin-left:0px;
+    margin-right:0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+    display:inline;
+    background-color: #F0F0F0;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'LFT Etica Semibold';
+    text-transform: uppercase;
+    font-size:14px;
+    color:#707070;
+}
+
+li.c-ec-survey__progress__previous{
+    margin-right:1.25%;
+    padding-left:5.5%;
+    padding-right:5.5%;
+}
+
+li.c-ec-survey__progress__skip {
+    margin-left:1.25%;
+    padding-left:5%;
+    padding-right:5%;
+}
