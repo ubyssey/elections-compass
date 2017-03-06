@@ -1,0 +1,35 @@
+.c-ec-header {
+  margin-top: 2rem;
+}
+
+.c-ec-header__subheading {
+  font-size: 17px;
+  margin-top: 0;
+  margin-bottom: 0.3rem;
+  color: #D00000;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.c-ec-header__heading {
+  margin-top: 0.3rem;
+  margin-bottom: 0.4rem;
+  font-size: 40px;
+  line-height: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  cursor: pointer;
+}
+
+.c-ec-header__heading > span {
+  vertical-align: middle;
+  display: inline-block;
+  padding-top: 0.25rem;
+}
+
+.c-ec-header__heading > img {
+  height: 40px;
+  vertical-align: middle;
+  margin-right: 0.65rem;
+}

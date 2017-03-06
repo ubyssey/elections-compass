@@ -1,3 +1,39 @@
+@font-face {
+	font-family:'ub-lft-etica';
+	src: url('../fonts/LFTEtica-Bold_gdi.eot');
+	src: url('../fonts/LFTEtica-Bold_gdi.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/LFTEtica-Bold_gdi.woff') format('woff'),
+		url('../fonts/LFTEtica-Bold_gdi.ttf') format('truetype'),
+		url('../fonts/LFTEtica-Bold_gdi.svg#LFTEtica-Bold') format('svg');
+	font-weight: 800;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-25CA;
+}
+
+@font-face {
+	font-family:'ub-lft-etica';
+	src: url('../fonts/LFTEtica-SemiBold.eot');
+	src: url('../fonts/LFTEtica-SemiBold.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/LFTEtica-SemiBold.woff') format('woff'),
+		url('../fonts/LFTEtica-SemiBold.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family:'ub-lft-etica';
+	src: url('../fonts/LFTEtica-Regular_gdi.eot');
+	src: url('../fonts/LFTEtica-Regular_gdi.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/LFTEtica-Regular_gdi.woff') format('woff'),
+		url('../fonts/LFTEtica-Regular_gdi.ttf') format('truetype'),
+		url('../fonts/LFTEtica-Regular_gdi.svg#LFTEtica-Regular') format('svg');
+	font-weight: 400;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-25CA;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -8,47 +44,6 @@ html, body {
   max-width: 850px;
   margin-left: auto;
   margin-right: auto;
-  font-family: "LFT Etica";
+  font-family: 'ub-lft-etica', sans-serif;
   background: white;
-}
-
-.c-ec-container {
-  width: 100%;
-  max-width: 850px;
-  margin-left: auto;
-  margin-right: auto;
-  font-family: 'LFT Etica'; }
-
-.c-ec-header {
-  margin-top: 2rem;
-}
-
-.c-ec-header__subheading {
-  font-size: 17px;
-  margin-top: 0;
-  margin-bottom: 0.3rem;
-  color: #D00000;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.c-ec-header__heading {
-  margin-top: 0.3rem;
-  margin-bottom: 0.4rem;
-  font-size: 40px;
-  line-height: 50px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.c-ec-header__heading > span {
-  vertical-align: middle;
-  display: inline-block;
-  padding-top: 0.25rem;
-}
-
-.c-ec-header__heading > img {
-  height: 40px;
-  vertical-align: middle;
-  margin-right: 0.65rem;
 }

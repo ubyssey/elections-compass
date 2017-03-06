@@ -51,7 +51,7 @@ class SurveyPage extends Component {
 
     return (
       <div>
-        <Header />
+        <Header goToPage={this.props.goToPage} />
         <SurveyQuestion question={question} />
         <SurveyResponse submitResponse={i => this.props.submitResponse(i)} />
         <SurveyProgress
