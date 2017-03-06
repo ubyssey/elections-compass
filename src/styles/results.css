@@ -1,6 +1,20 @@
+.c-ec-results__heading,
+.c-ec-results__subheading {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.c-ec-results__subheading {
+  margin-bottom: 1.5rem;
+}
+
 .c-ec-results__race {
   margin-top: 3rem;
   margin-bottom: 3rem;
+}
+
+.c-ec-results__categories {
+  margin-top: 2rem;
 }
 
 .c-ec-category {
@@ -9,8 +23,11 @@
 }
 
 .c-ec-category__name {
-  width: 200px;
-  line-height: 30px;
+  width: 25%;
+  line-height: 1.2em;
+  padding-right: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 .c-ec-category__bar {
@@ -18,6 +35,7 @@
   height: 30px;
   background: #e4e4e4;
   border-radius: 4px;
+  overflow: visible;
 }
 
 .c-ec-category__bar__fill {
@@ -33,7 +51,10 @@
 
 .c-ec-candidate__name {
   width: 20%;
-  line-height: 30px;
+  line-height: 1.2em;
+  padding-right: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 .c-ec-candidate__bar {
@@ -49,6 +70,14 @@
   height: 100%;
 }
 
+.c-ec-candidate__bar__text {
+  line-height: 30px;
+  color: white;
+  padding-left: 0.5rem;
+  font-size: 13px;
+  font-weight: 800;
+}
+
 .c-ec-candidate__bar__empty {
   height: 100%;
   line-height: 30px;
@@ -56,4 +85,11 @@
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   color: #808080;
+}
+
+@media screen and (max-width: 720px) {
+  .c-ec-category__name,
+  .c-ec-candidate__name {
+    font-size: 14px;
+  }
 }

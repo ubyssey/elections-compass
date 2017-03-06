@@ -32,7 +32,7 @@ function computeSimilarity(answersA, answersB) {
     return 0
   }
 
-  return Math.max(round(1 - (total / count), 2) - (nullCount / answersA.length / 2), 0)
+  return round(Math.max(1 - (total / count) - (nullCount / answersA.length / 2), 0), 2)
 
 }
 
@@ -78,9 +78,14 @@ const ResultsRace = (props) => {
 }
 
 const ResultsCandidateBar = (props) => {
-  const style = {width: (props.percent * 100) + '%' }
+  const percent = (props.percent * 100) + '%';
+  const style = {width: percent }
   const empty = (<div className='c-ec-candidate__bar__empty'>Insufficient data</div>)
-  const bar = (<div className='c-ec-candidate__bar__fill' style={style}></div>)
+  const bar = (
+    <div className='c-ec-candidate__bar__fill' style={style}>
+      <div className="c-ec-candidate__bar__text">{`${percent} match`}</div>
+    </div>
+  )
   return (
     <div className='c-ec-candidate__bar'>
       {props.percent === 0 ? empty : bar}
@@ -98,7 +103,17 @@ const ResultsCandidate = (props) => {
 }
 
 const ResultsCategoryBar = (props) => {
-  const style = {width: (props.scores[props.category.id] / 4 * 100) + '%' }
+  const value = props.scores[props.category.id] - 2;
+  const percent = (Math.abs(value) / 4 * 100)
+
+  var left = 50 - percent
+  var color = '#2f2fda'
+  if (value > 0) {
+    left = 50
+    color = '#d00000'
+  }
+
+  const style = {marginLeft: left + '%', width: percent + '%', backgroundColor: color }
   return (
     <div className='c-ec-category__bar'>
       <div className='c-ec-category__bar__fill' style={style}></div>
@@ -181,9 +196,12 @@ class ResultsPage extends Component {
     return (
       <div>
         <Header goToPage={this.props.goToPage} />
-        <h2>Your results</h2>
-        <h4>These are the issues you care about most</h4>
-        {categories}
+
+        <div className="c-ec-results__categories">
+          <h2 className="c-ec-results__heading">Your results</h2>
+          <h4 className="c-ec-results__subheading">These are the issues you care about most</h4>
+          {categories}
+        </div>
         {races}
         <Footer />
       </div>
