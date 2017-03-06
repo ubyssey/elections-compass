@@ -41,10 +41,6 @@ const ResultsRaceCandidates = (props) => {
   const candidates = props.race.candidates
     .map((id) => props.candidates[id])
     .map((candidate) => {
-
-      console.log('answersA', candidate.answers)
-      console.log('answersB', props.answers)
-
       candidate.scoresDiff = computeSimilarity(candidate.answers, props.answers)
       return candidate
     })
