@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
-import { goToPage, submitResponse, prevQuestion, nextQuestion } from './actions'
+import { fetchData, goToPage, submitResponse, prevQuestion, nextQuestion } from './actions'
 
 import './styles/App.css';
 
 class App extends Component {
+
+  componentWillMount() {
+    this.props.fetchData('https://s3-us-west-1.amazonaws.com/ubyssey/media/data/elections-compass/data.json')
+  }
+
   render() {
     return (
       <div className='c-ec-container'>
@@ -18,15 +23,26 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     page: state.page,
+
+    // Data
     questions: state.questions,
+    categories: state.categories,
+    candidates: state.candidates,
+    races: state.races,
+
     currentQuestion: state.currentQuestion,
-    answers: state.answers,
-    races: state.races
+    results: {
+      raw_scores: state.raw_scores,
+      responses: state.responses
+    }
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    fetchData: (url) => {
+      dispatch(fetchData(url))
+    },
     goToPage: (page) => {
       dispatch(goToPage(page))
     },

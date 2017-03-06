@@ -1,4 +1,5 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
 
 import * as types from './actionTypes'
 
@@ -10,18 +11,6 @@ const appPages = {
   landing: LandingPage,
   survey: SurveyPage,
   results: ResultsPage
-}
-
-const surveyCategories = {
-  'student-involvement': {
-    name: 'Student Involvement',
-    type: 'simple'
-  },
-  'spending': {
-    name: 'Spending',
-    type: 'binary',
-    options: ['increase', 'decrease']
-  }
 }
 
 const races = [
@@ -98,10 +87,6 @@ const races = [
     categories: ['spending', 'student-involvement'],
     candidates: [
       {
-        name: 'Matthew Morton',
-        answers: {}
-      },
-      {
         name: 'Alim Lakhiyalov',
         answers: {}
       }
@@ -158,10 +143,6 @@ const races = [
         answers: {}
       },
       {
-        name: 'Maja Dziok',
-        answers: {}
-      },
-      {
         name: 'Ian Sapollnik',
         answers: {}
       }
@@ -169,28 +150,15 @@ const races = [
   }
 ]
 
-const surveyQuestions = [
-  {
-    body: 'The AMS should reduce the price of food in the Nest.',
-    category: 'spending.increase'
-  },
-  {
-    body: 'The AMS should reduce the price of food in the Nest 1.',
-    category: 'student-involvement'
-  },
-  {
-    body: 'The AMS should reduce the price of food in the Nest 2.',
-    category: 'spending.decrease'
-  }
-]
-
 const initialState = {
   page: appPages.landing,
-  questions: surveyQuestions,
-  categories: surveyCategories,
+  questions: [],
+  categories: {},
   races: races,
   currentQuestion: 0,
-  answers: {}
+
+  raw_scores: {},
+  responses: {}
 }
 
 function reducer(state = initialState, action) {
@@ -199,9 +167,11 @@ function reducer(state = initialState, action) {
       return Object.assign({}, state, { page: appPages[action.page] })
     case types.SUBMIT_RESPONSE:
       var category = state.questions[state.currentQuestion].category
-      var answers = state.answers
-      answers[category] = (answers[category] || 0) + action.value
-      return Object.assign({}, state, { answers: answers })
+      var raw_scores = state.raw_scores
+      var responses = state.responses
+      raw_scores[category] = (raw_scores[category] || 0) + action.value
+      responses[category] = (responses[category] || 0) + 1
+      return Object.assign({}, state, { raw_scores: raw_scores, responses: responses })
     case types.PREV_QUESTION:
       return Object.assign({}, state, { currentQuestion: Math.max(0, state.currentQuestion - 1) })
     case types.NEXT_QUESTION:
@@ -210,9 +180,11 @@ function reducer(state = initialState, action) {
       } else {
         return Object.assign({}, state, { page: appPages.results })
       }
+    case types.FETCH_DATA:
+      return Object.assign({}, state, action.data)
     default:
       return state
   }
 }
 
-export default createStore(reducer)
+export default createStore(reducer, applyMiddleware(thunk))
