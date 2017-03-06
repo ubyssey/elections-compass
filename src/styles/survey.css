@@ -133,3 +133,8 @@
 .c-ec-survey__progress__skip:last-child {
   margin-right: 0;
 }
+
+.c-ec-survey__progress__skip,
+.c-ec-survey__progress__previous {
+  cursor: pointer;
+}

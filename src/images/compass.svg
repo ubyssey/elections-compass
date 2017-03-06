@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->
+    <title>compass-with-white-needles</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Landing" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desktop" sketch:type="MSArtboardGroup" transform="translate(-100.000000, -143.000000)" fill="#000000">
+            <g id="VOTE-COMPASS-+-compass-with-white-needles" sketch:type="MSLayerGroup" transform="translate(100.000000, 130.000000)">
+                <g id="compass-with-white-needles" transform="translate(0.000000, 13.500000)" sketch:type="MSShapeGroup">
+                    <g id="explore">
+                        <path d="M17.5935829,15.6717391 C16.5379679,15.6717391 15.6582888,16.5521739 15.6582888,17.6086957 C15.6582888,18.6652174 16.5379679,19.5456522 17.5935829,19.5456522 C18.6491979,19.5456522 19.528877,18.6652174 19.528877,17.6086957 C19.528877,16.5521739 18.6491979,15.6717391 17.5935829,15.6717391 L17.5935829,15.6717391 Z M17.5935829,0 C7.9171123,0 0,7.92391304 0,17.6086957 C0,27.2934783 7.9171123,35.2173913 17.5935829,35.2173913 C27.2700535,35.2173913 35.1871658,27.2934783 35.1871658,17.6086957 C35.1871658,7.92391304 27.2700535,0 17.5935829,0 L17.5935829,0 Z M21.4641711,21.4826087 L7.03743316,28.173913 L13.7229947,13.7347826 L28.1497326,7.04347826 L21.4641711,21.4826087 L21.4641711,21.4826087 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

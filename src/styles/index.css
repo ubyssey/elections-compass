@@ -12,57 +12,6 @@ html, body {
   background: white;
 }
 
-.landing-container {
-	margin-top: 10%;
-	display: inline-block;
-	height: 400px;
-	width: 100%;
-  text-align: center;
-}
-
-#landing-topline-text {
-	height: 40px;
-	font-size:1.5em;
-	background-color:white;
-	margin:0px;
-}
-
-#landing-middleline-text{
-
-	height: 100px;
-	background-color:white;
-	font-size:2.5em;
-	margin:0px,1px,0px,1px;
-	font-family: "LFT Etica";
-}
-
-#landing-lastline-text {
-    height: 30px;
-    background-color: white;
-    font-size:1.5em;
-    margin:1px;
-}
-
-#call-to-quiz-button {
-	height:100px;
-	width: 300px;
-	background-color: #b80808;
-	margin:10px;
-	border-radius: 10px;
-	border: none;
-	box-shadow: 0px 5px 10px 0px rgba(105,2,2,1);
-	color:white;
-	font-size:1.4em;
-	font-weight:bold;
-}
-
-#landing-footer {
-	padding:10px;
-	height:50px;
-	background-color:white;
-}
-
-
 .c-ec-container {
   width: 100%;
   max-width: 850px;
@@ -70,16 +19,36 @@ html, body {
   margin-right: auto;
   font-family: 'LFT Etica'; }
 
-.c-ec-header h2{
-    color: red;
-    font-family: 'LFT Etica Semibold';
-    text-transform: uppercase;
-    font-size:medium;
-    margin-bottom: 8px;
+.c-ec-header {
+  margin-top: 2rem;
 }
 
-.c-ec-header h1{
-    text-transform: uppercase;
-    margin-top: 8px;
-    margin-bottom: 8px;
+.c-ec-header__subheading {
+  font-size: 17px;
+  margin-top: 0;
+  margin-bottom: 0.3rem;
+  color: #D00000;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.c-ec-header__heading {
+  margin-top: 0.3rem;
+  margin-bottom: 0.4rem;
+  font-size: 40px;
+  line-height: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.c-ec-header__heading > span {
+  vertical-align: middle;
+  display: inline-block;
+  padding-top: 0.25rem;
+}
+
+.c-ec-header__heading > img {
+  height: 40px;
+  vertical-align: middle;
+  margin-right: 0.65rem;
 }
