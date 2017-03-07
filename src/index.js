@@ -13,5 +13,5 @@ render(
      <AppContainer />
     </Provider>
   ),
-  document.getElementById('root')
+  document.getElementById('vote-compass-root')
 );
