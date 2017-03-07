@@ -77,12 +77,12 @@ const ResultsRace = (props) => {
 }
 
 const ResultsCandidateBar = (props) => {
-  const percent = (props.percent * 100) + '%';
-  const style = {width: percent }
+  const percent = props.percent * 100
+  const style = {width: percent + '%'}
   const empty = (<div className='c-ec-candidate__bar__empty'>Insufficient data</div>)
   const bar = (
     <div className='c-ec-candidate__bar__fill' style={style}>
-      <div className="c-ec-candidate__bar__text">{`${percent} match`}</div>
+      <div className="c-ec-candidate__bar__text">{`${percent.toFixed()}% match`}</div>
     </div>
   )
   return (
@@ -95,7 +95,7 @@ const ResultsCandidateBar = (props) => {
 const ResultsCandidate = (props) => {
   return (
     <div className='c-ec-candidate'>
-      <div className='c-ec-candidate__name'>{props.candidate.name}</div>
+      <div className='c-ec-candidate__name'><a href={props.candidate.profile} target='_blank'>{props.candidate.name}</a></div>
       <ResultsCandidateBar percent={props.candidate.scoresDiff} />
     </div>
   )
@@ -199,9 +199,25 @@ class ResultsPage extends Component {
         <div className="c-ec-results__categories">
           <h2 className="c-ec-results__heading">Your results</h2>
           <h4 className="c-ec-results__subheading">These are the issues you care about most</h4>
+          <div className='c-ec-category'>
+            <div className='c-ec-category__name'></div>
+            <div className='c-ec-category__bar-empty'>
+              <div className='c-ec-category__bar__left'>Least important</div>
+              <div className='c-ec-category__bar__middle'>Neutral</div>
+              <div className='c-ec-category__bar__right'>Most important</div>
+            </div>
+          </div>
           {categories}
         </div>
         {races}
+        <div style={{textAlign: 'center'}}>
+          <a
+            className='c-ec-vote-now'
+            href='https://amsvoting.as.it.ubc.ca/'
+            target='_blank'>
+            Vote now!
+          </a>
+        </div>
       </div>
     );
   }
