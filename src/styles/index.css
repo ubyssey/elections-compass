@@ -34,17 +34,23 @@
 	unicode-range: U+0020-25CA;
 }
 
-html, body {
+#vote-compass-root {
 	font-size: 16px;
-	margin: 0;
-	padding: 0;
-	background: #fff;
 	-webkit-font-smoothing: antialiased;
 }
 
-button:focus,
-button:active {
+#vote-compass-root button:focus,
+#vote-compass-root button:active {
   outline: none;
+}
+
+#vote-compass-root a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#vote-compass-root a:hover {
+  text-decoration: underline;
 }
 
 .c-ec-container {
@@ -53,5 +59,43 @@ button:active {
 	padding-right: 15px;
   margin-left: auto;
   margin-right: auto;
-  font-family: 'ub-lft-etica', sans-serif;
+  font-family: 'ub-lft-etica', 'LFT Etica', Helvetica, Arial, sans-serif;
+}
+
+.c-ec-vote-now {
+  height: 74px;
+	display: inline-block;
+	line-height: 74px;
+  border: none;
+  background: #C91515;
+  box-shadow: 0px 4px #8D1010;
+
+  margin-top: 0;
+  margin-bottom: 5px;
+
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.4);
+
+  width: 275px;
+
+  font-size: 20px;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: white;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+.c-ec-vote-now:hover {
+	text-decoration: none;
+}
+
+.c-ec-vote-now:active {
+  margin-top: 1px;
+  margin-bottom: 4px;
+  background: #c11515;
+  box-shadow: 0px 3px #8D1010;
 }

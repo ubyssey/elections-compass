@@ -8,7 +8,7 @@
   padding-left: 3rem;
   padding-right: 3rem;
 
-  background-color: #15AAC9;
+  background: #15AAC9;
 
   font-size: 28px;
   line-height: 1.3em;
@@ -68,52 +68,52 @@
 }
 
 .c-ec-survey__response__option--1 > button {
-  background-color: #C91515;
+  background: #C91515;
   box-shadow: 0px 4px #8D1010;
 }
 
 .c-ec-survey__response__option--1 > button:active {
-  background-color: #c11515;
+  background: #c11515;
   box-shadow: 0px 3px #8D1010;
 }
 
 .c-ec-survey__response__option--2 > button {
-    background-color: #E14E00;
+    background: #E14E00;
     box-shadow: 0px 4px #8A3101;
 }
 
 .c-ec-survey__response__option--2 > button:active {
-  background-color: #d64b02;
+  background: #d64b02;
   box-shadow: 0px 3px #8A3101;
 }
 
 .c-ec-survey__response__option--3 > button {
-    background-color: #F9E500;
+    background: #F9E500;
     box-shadow: 0px 4px #B3A504;
 }
 
 .c-ec-survey__response__option--3 > button:active {
-  background-color: #f3df01;
+  background: #f3df01;
   box-shadow: 0px 3px #B3A504;
 }
 
 .c-ec-survey__response__option--4 > button {
-    background-color: #669B00;
+    background: #669B00;
     box-shadow: 0px 4px #476C00;
 }
 
 .c-ec-survey__response__option--4 > button:active {
-    background-color: #649801;
+    background: #649801;
     box-shadow: 0px 3px #476C00;
 }
 
 .c-ec-survey__response__option--5 > button {
-    background-color: #20E200;
+    background: #20E200;
     box-shadow: 0px 4px #18A101;
 }
 
 .c-ec-survey__response__option--5 > button:active {
-    background-color: #20e000;
+    background: #20e000;
     box-shadow: 0px 3px #18A101;
 }
 
@@ -125,7 +125,7 @@
 .c-ec-survey__progress__list {
   flex: 1;
   display: flex;
-  background-color: #F0F0F0;
+  background: #F0F0F0;
   border-radius: 5px;
   text-transform: uppercase;
   font-size:14px;

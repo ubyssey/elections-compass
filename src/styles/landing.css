@@ -1,6 +1,7 @@
 .landing-container {
 	margin-top: 5rem;
-	height: 400px;
+	margin-bottom: 5rem;
+
 	width: 100%;
   text-align: center;
 }
@@ -46,7 +47,7 @@
 .c-ec-landing__start {
   height: 74px;
   border: none;
-  background-color: #C91515;
+  background: #C91515;
   box-shadow: 0px 4px #8D1010;
 
   margin-top: 0;
@@ -71,12 +72,12 @@
 .c-ec-landing__start:active {
   margin-top: 1px;
   margin-bottom: 4px;
-  background-color: #c11515;
+  background: #c11515;
   box-shadow: 0px 3px #8D1010;
 }
 
 .c-ec-landing__start--loading {
-  background-color: #d8d8d8;
+  background: #d8d8d8;
   box-shadow: 0px 5px #c7c7c7;
   color: #9a9a9a;
   text-shadow: none;
