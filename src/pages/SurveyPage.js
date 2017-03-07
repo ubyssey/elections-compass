@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import Header from '../components/Header'
-import Footer from '../components/Footer'
 
 import '../styles/survey.css';
 
@@ -60,7 +59,6 @@ class SurveyPage extends Component {
           questions={this.props.questions}
           prevQuestion={this.props.prevQuestion}
           skipQuestion={this.props.skipQuestion} />
-        <Footer />
       </div>
     );
   }

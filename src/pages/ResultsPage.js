@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import '../styles/results.css';
 
 import Header from '../components/Header'
-import Footer from '../components/Footer'
 
 function round(value, decimals) {
   return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
@@ -203,7 +202,6 @@ class ResultsPage extends Component {
           {categories}
         </div>
         {races}
-        <Footer />
       </div>
     );
   }

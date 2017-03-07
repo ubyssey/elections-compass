@@ -5,14 +5,13 @@ import '../styles/landing.css';
 import compass from '../images/compass.svg'
 
 import Spinner from '../components/Spinner'
-import Footer from '../components/Footer'
 
 class LandingPage extends Component {
 
   componentWillMount() {
     this.props.resetSurvey()
   }
-  
+
   renderStart() {
     return (
       <button
@@ -45,7 +44,6 @@ class LandingPage extends Component {
      				   {this.props.isLoaded ? this.renderStart() : this.renderLoading()}
             </div>
           </div>
-          <Footer />
        	</div>
      	</div>
     )
