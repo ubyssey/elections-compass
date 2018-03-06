@@ -8,35 +8,31 @@ function round(value, decimals) {
   return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 }
 
-function percentDiff(a, b) {
-  return Math.abs(a - b) / 5;
-}
+function squaredError(answersA, answersB) {
+  let a = [];
+  let b = [];
 
-function computeSimilarity(answersA, answersB) {
-
-  let total = 0;
-  let count = 0;
-  let nullCount = 0;
-
-  for (var i = 0; i < answersA.length; i++) {
+  for (let i = 0; i < answersA.length; i++) {
     if (answersA[i] !== null && answersB[i] !== null) {
-      total += percentDiff(answersA[i], answersB[i])
-      count++
-    } else {
-      nullCount++;
+      a.push(answersA[i])
+      b.push(answersB[i])
     }
   }
 
-  if (count === 0) {
-    return 0
+  let squaredError = 0;
+
+  for (let i = 0; i < a.length; i++) {
+    squaredError += Math.pow(a[i]-b[i],2);
   }
 
-  return round(Math.max(1 - (total / count) - (nullCount / answersA.length / 2), 0), 2)
+  return Math.min(squaredError / (a.length*16), 1);
+}
 
+function computeSimilarity(answersA, answersB) {
+  return round(1 - squaredError(answersA, answersB), 2);
 }
 
 const ResultsRaceCandidates = (props) => {
-
   const candidates = props.race.candidates
     .map((id) => props.candidates[id])
     .map((candidate) => {
@@ -59,7 +55,6 @@ const ResultsRaceCandidates = (props) => {
   return (
     <div>{candidates}</div>
   )
-
 }
 
 const ResultsRace = (props) => {
@@ -149,6 +144,11 @@ class ResultsPage extends Component {
         let score = this.props.answers[question.id]
 
         let cat = this.props.categories[question.category]
+
+        console.log(this.props.categories)
+        console.log(question.category)
+
+        console.log(cat)
 
         if (score !== null) {
           rawScores[cat.id] += score

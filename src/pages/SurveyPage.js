@@ -31,7 +31,7 @@ const SurveyResponse = (props) => (
 const SurveyProgress = (props) => (
   <div className='c-ec-survey__progress'>
     <div className='c-ec-survey__progress__previous'
-      onClick={e => props.prevQuestion()}>Previous</div>
+      onClick={e => props.prevQuestion()}>Back</div>
     <div className='c-ec-survey__progress__list'>
     {
       props.questions.map((question, i) => (

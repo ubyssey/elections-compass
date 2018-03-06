@@ -108,11 +108,12 @@ with open('data/responses.csv', 'rU') as csvfile:
 
     for row in reader:
 
-        candidate = candidates[row[2]]
+        candidate = candidates[row[1]]
 
         for i, response in enumerate(row[3:]):
             if response:
-                score = options[response]
+                #score = options[response]
+                score = int(response) - 1
                 candidate.add_response(score, questions[i])
 
 def get_candidates(candidates):
