@@ -9,6 +9,6 @@ export default (props) => (
     <h2 className='c-ec-header__subheading'>2018 AMS Elections</h2>
     <h1
       className='c-ec-header__heading'
-      onClick={e => props.goToPage('landing')}><img src={compass} alt="Compass" /><span>Vote Compass</span></h1>
+      onClick={e => props.goToPage('landing')}><img src={compass} alt="Compass" /><span>Elections Compass</span></h1>
   </div>
 )

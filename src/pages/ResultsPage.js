@@ -8,28 +8,30 @@ function round(value, decimals) {
   return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 }
 
-function squaredError(answersA, answersB) {
-  let a = [];
-  let b = [];
-
-  for (let i = 0; i < answersA.length; i++) {
-    if (answersA[i] !== null && answersB[i] !== null) {
-      a.push(answersA[i])
-      b.push(answersB[i])
-    }
-  }
-
-  let squaredError = 0;
-
-  for (let i = 0; i < a.length; i++) {
-    squaredError += Math.pow(a[i]-b[i],2);
-  }
-
-  return Math.min(squaredError / (a.length*16), 1);
+function percentDiff(a, b) {
+  return Math.abs(a - b) / 5;
 }
 
 function computeSimilarity(answersA, answersB) {
-  return round(1 - squaredError(answersA, answersB), 2);
+  let total = 0;
+  let count = 0;
+  let nullCount = 0;
+
+  for (var i = 0; i < answersA.length; i++) {
+    if (answersA[i] !== null && answersB[i] !== null) {
+      total += percentDiff(answersA[i], answersB[i])
+      count++
+    } else {
+      nullCount++;
+    }
+  }
+
+  if (count === 0) {
+    return 0
+  }
+
+  return round(Math.max(1 - (total / count) - (nullCount / answersA.length / 2), 0), 2)
+
 }
 
 const ResultsRaceCandidates = (props) => {
