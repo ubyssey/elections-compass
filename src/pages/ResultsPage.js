@@ -2,37 +2,8 @@ import React, { Component } from 'react';
 
 import '../styles/results.css';
 
-import Header from '../components/Header'
-
-function round(value, decimals) {
-  return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
-}
-
-function percentDiff(a, b) {
-  return Math.abs(a - b) / 5;
-}
-
-function computeSimilarity(answersA, answersB) {
-  let total = 0;
-  let count = 0;
-  let nullCount = 0;
-
-  for (var i = 0; i < answersA.length; i++) {
-    if (answersA[i] !== null && answersB[i] !== null) {
-      total += percentDiff(answersA[i], answersB[i])
-      count++
-    } else {
-      nullCount++;
-    }
-  }
-
-  if (count === 0) {
-    return 0
-  }
-
-  return round(Math.max(1 - (total / count) - (nullCount / answersA.length / 2), 0), 2)
-
-}
+import Header from '../components/Header';
+import {computeSimilarity} from '../ranking';
 
 const ResultsRaceCandidates = (props) => {
   const candidates = props.race.candidates
